@@ -5,9 +5,11 @@ import com.shopping.userservice.controller.dto.UserResponseDTO;
 import com.shopping.userservice.domain.User;
 import com.shopping.userservice.domain.infrastructure.UserRepository;
 import com.shopping.userservice.utils.customexception.ShoppingException;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;

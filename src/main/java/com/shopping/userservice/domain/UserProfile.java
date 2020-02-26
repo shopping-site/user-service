@@ -57,4 +57,13 @@ public class UserProfile {
         this.gender=Gender.MALE;
     }
 
+    public UserProfile(String userId, String firstName, String lastName, String email, String mobile) {
+
+        this.userId = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.mobile = mobile;
+
+    }
 }

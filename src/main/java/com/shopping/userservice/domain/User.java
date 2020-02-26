@@ -42,7 +42,7 @@ public class User implements Serializable {
 	private String mobile;
 
 	@Column(name = "country_code")
-	private String countryCode;
+	private String countryCode = "+91";
 
 	@Column(name = "password")
 	private String password;
@@ -67,10 +67,11 @@ public class User implements Serializable {
 	@JoinColumn(name = "user_profile_id", referencedColumnName = "user_profile_id")
 	private UserProfile userProfile;
 
-	public User(CreateUserDTO createUserDTO) {
-		this.email = createUserDTO.getEmail();
-		this.mobile = createUserDTO.getMobile();
-		this.password = createUserDTO.getPassword();
+	public User(CreateUserDTO createUserDto) {
+		this.email = createUserDto.getEmail();
+		this.mobile = createUserDto.getMobile();
+		this.password = createUserDto.getPassword();
+		this.userProfile = new UserProfile(this.userId, createUserDto.getUserProfile().getFirstName(), createUserDto.getUserProfile().getLastName(), createUserDto.getEmail(), createUserDto.getMobile());
 	}
 
 }
